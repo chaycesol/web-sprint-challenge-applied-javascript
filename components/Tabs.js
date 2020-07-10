@@ -30,6 +30,7 @@ function tabMaker() {
             topicTabs.forEach(elm => {
                 const tab = document.createElement('div');
                 tab.classList.add('tab');
+                tab.setAttribute('onclick', `filterTabs('${elm}')`)
 
                 tab.textContent = elm;
                 // debugger // used to see elms populate target div properly

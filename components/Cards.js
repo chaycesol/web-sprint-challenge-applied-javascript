@@ -64,10 +64,10 @@ axios.get(articleURL)
             // debugger // see if each card is being made properly
             cardContainer.appendChild(articleCard)
         })
-        .catch(err => {
-            console.log(err)
-          });
     })
+    .catch(err => {
+        console.log('Somethings not right here:' + err)
+      });
 
 
 //declaring entry point for card div
