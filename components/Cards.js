@@ -105,7 +105,13 @@ function cardMaker(articleDataObj) {
     authorName.textContent = articleAuthor;
     authorImg.src = authorPhoto;
 
+    //adding event listner to print headline to console when clicked
+    headlineDiv.addEventListener('click', evnt => {
+        console.log(event.target.textContent)
+    })
+
     return cardDiv
 }
+
 
 // cardMaker();
