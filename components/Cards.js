@@ -30,13 +30,13 @@ const articleURL = "https://lambda-times-backend.herokuapp.com/articles"
 axios.get(articleURL)
     .then(response =>{
         //grabbing the response
-        const data = response.data.articles;
+        const responseData = response.data.articles;
         // grabbing the arrays within the array
-        const javascript = response.data.articles.javascript;
-        const bootstrap = response.data.articles.bootstrap;
-        const technology = response.data.articles.technology;
-        const jquery = response.data.articles.jquery;
-        const node = response.data.articles.node;
+        const javascript = responseData.javascript;
+        const bootstrap = responseData.bootstrap;
+        const technology = responseData.technology;
+        const jquery = responseData.jquery;
+        const node = responseData.node;
 
         //iterating through each of the arrays to pull out the articles
         javascript.forEach(element =>{
@@ -64,7 +64,10 @@ axios.get(articleURL)
             // debugger // see if each card is being made properly
             cardContainer.appendChild(articleCard)
         })
-
+        .catch(function (error) {
+            // debugger
+            console.log('Something seems wrong here?' + error)
+          })
     })
 
 
