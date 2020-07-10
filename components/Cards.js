@@ -26,10 +26,57 @@ import axios from 'axios';
 // Creating the API endpoint as a variable so its easy to handle in the function 
 const articleURL = "https://lambda-times-backend.herokuapp.com/articles"
 
-//declaring entry point for card div
-cardsContainer = document.querySelector('.cards-container')
+// using axios to grab article data
+axios.get(articleURL)
+    .then(response =>{
+        //grabbing the response
+        const data = response.data.articles;
+        // grabbing the arrays within the array
+        const javascript = response.data.articles.javascript;
+        const bootstrap = response.data.articles.bootstrap;
+        const technology = response.data.articles.technology;
+        const jquery = response.data.articles.jquery;
+        const node = response.data.articles.node;
 
-function cardMaker(items) {
+        //iterating through each of the arrays to pull out the articles
+        javascript.forEach(element =>{
+            const articleCard = cardMaker(element)
+            // debugger // see if each card is being made properly
+            cardContainer.appendChild(articleCard)
+        })
+        bootstrap.forEach(element =>{
+            const articleCard = cardMaker(element)
+            // debugger // see if each card is being made properly
+            cardContainer.appendChild(articleCard)
+        })
+        technology.forEach(element =>{
+            const articleCard = cardMaker(element)
+            // debugger // see if each card is being made properly
+            cardContainer.appendChild(articleCard)
+        })
+        jquery.forEach(element =>{
+            const articleCard = cardMaker(element)
+            // debugger // see if each card is being made properly
+            cardContainer.appendChild(articleCard)
+        })
+        node.forEach(element =>{
+            const articleCard = cardMaker(element)
+            // debugger // see if each card is being made properly
+            cardContainer.appendChild(articleCard)
+        })
+
+    })
+
+
+//declaring entry point for card div
+const cardContainer = document.querySelector('.cards-container')
+
+function cardMaker(articleDataObj) {
+    // grabbing data from api
+    const articleHeadline = articleDataObj.headline;
+    const articleAuthor = articleDataObj.authorName;
+    const authorPhoto = articleDataObj.authorPhoto;
+
     //creating card elements to hold articles
     const cardDiv = document.createElement('div')
     const headlineDiv = document.createElement('div')
@@ -50,7 +97,13 @@ function cardMaker(items) {
     authorDiv.appendChild(imgDiv)
     imgDiv.appendChild(authorImg)
     authorDiv.appendChild(authorName)
+    
+    //adding content to the fields
+    headlineDiv.textContent = articleHeadline;;
+    authorName.textContent = articleAuthor;
+    authorImg.src = authorPhoto;
 
-    console.log(cardDiv);
-
+    return cardDiv
 }
+
+// cardMaker();
