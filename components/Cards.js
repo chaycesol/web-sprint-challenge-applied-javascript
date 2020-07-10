@@ -64,10 +64,9 @@ axios.get(articleURL)
             // debugger // see if each card is being made properly
             cardContainer.appendChild(articleCard)
         })
-        .catch(function (error) {
-            // debugger
-            console.log('Something seems wrong here?' + error)
-          })
+        .catch(err => {
+            console.log(err)
+          });
     })
 
 

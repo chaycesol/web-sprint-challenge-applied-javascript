@@ -19,6 +19,7 @@ const topicTabsURL = "https://lambda-times-backend.herokuapp.com/topics"
 // Selecting the Entry Point for my new Div
 const tabDiv = document.querySelector('.topics')
 
+
 // Function to create tabs for different topics
 function tabMaker() {
     // let responseData = null //ended up not needing this but keep to ask question why?
@@ -34,9 +35,8 @@ function tabMaker() {
                 // debugger // used to see elms populate target div properly
                 tabDiv.appendChild(tab);
             })
-            
         })
-        .catch(function (error) {
+        .catch(error => {
             // debugger
             console.log(error)
           })
