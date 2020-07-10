@@ -66,7 +66,7 @@ axios.get(articleURL)
         })
     })
     .catch(err => {
-        console.log('Somethings not right here:' + err)
+        console.log('Somethings not right here:' + err) // *+* STRETCH - ADD CUSTOM ERROR LOG MESSAGE *+*
       });
 
 
@@ -101,7 +101,7 @@ function cardMaker(articleDataObj) {
     authorDiv.appendChild(authorName)
     
     //adding content to the fields
-    headlineDiv.textContent = articleHeadline;;
+    headlineDiv.textContent = articleHeadline;
     authorName.textContent = articleAuthor;
     authorImg.src = authorPhoto;
 
