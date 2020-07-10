@@ -11,9 +11,10 @@
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
 
+// Declared Selector to create my entry point for new Div
 const headerContainer = document.querySelector('.header-container')
 
-
+// function to create header
 function Header() {
     //create the element
     const headerDiv = document.createElement('div') //creates header div
@@ -41,4 +42,5 @@ function Header() {
 
 }
 
+// invoking function to create header element
 Header();

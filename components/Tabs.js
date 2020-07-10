@@ -13,9 +13,13 @@ import axios from 'axios';
 //
 // NOTE: you do _not_ need to install axios as it's included in the HTML via script element
 
+// Turning the API URL into a variable so it's easier for me to call in the function
 const topicTabsURL = "https://lambda-times-backend.herokuapp.com/topics"
+
+// Selecting the Entry Point for my new Div
 const tabDiv = document.querySelector('.topics')
 
+// Function to create tabs for different topics
 function tabMaker() {
     // let responseData = null //ended up not needing this but keep to ask question why?
     axios.get(topicTabsURL)
@@ -32,6 +36,11 @@ function tabMaker() {
             })
             
         })
+        .catch(function (error) {
+            // debugger
+            console.log(error)
+          })
     }        
 
+// Invoking the function so we can make those tabs!    
 tabMaker();
