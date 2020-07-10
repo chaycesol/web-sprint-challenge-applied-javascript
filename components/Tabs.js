@@ -12,3 +12,26 @@ import axios from 'axios';
 //    <div class="tab">topic here</div>
 //
 // NOTE: you do _not_ need to install axios as it's included in the HTML via script element
+
+const topicTabsURL = "https://lambda-times-backend.herokuapp.com/topics"
+const tabDiv = document.querySelector('.topics')
+
+function tabMaker() {
+    // let responseData = null //ended up not needing this but keep to ask question why?
+    axios.get(topicTabsURL)
+        .then(response => {
+            const topicTabs = response.data.topics;
+
+            topicTabs.forEach(elm => {
+                const tab = document.createElement('div');
+                tab.classList.add('tab');
+
+                tab.textContent = elm;
+                // debugger // used to see elms populate target div properly
+                tabDiv.appendChild(tab);
+            })
+            
+        })
+    }        
+
+tabMaker();

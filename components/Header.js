@@ -13,6 +13,7 @@
 
 const headerContainer = document.querySelector('.header-container')
 
+
 function Header() {
     //create the element
     const headerDiv = document.createElement('div') //creates header div
@@ -40,3 +41,4 @@ function Header() {
 
 }
 
+Header();
